@@ -15,15 +15,16 @@ public class Player {
 	}
 
 	public int getBalance() {
-		return balance;
+		return account.getBalance();
 	}
 
 	public boolean changeBalance() {
-		return 
+		
+		return true;
 	}
 
 	public String toString() {
-		return name + "\n" + balance + " points.";
+		return name + "\n" + account.getBalance() + " points.";
 	}
 	
 	

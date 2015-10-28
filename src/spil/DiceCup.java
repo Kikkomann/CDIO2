@@ -2,7 +2,7 @@ package spil;
 
 public class DiceCup {
 	
-	Dice[] dices;
+	private Dice[] dices;
 
 	public DiceCup() {
 		dices = new Dice[2];
@@ -10,8 +10,14 @@ public class DiceCup {
 		dices[1] = new Dice();
 	}
 	
-	public int[] roll(){
-		return new int[] {dices[0].roll(), dices[1].roll()};
+	public void roll(){
+		dices[0].roll();
+		dices[1].roll();
+		return;
+	}
+	
+	public int[] getDiceValues(){
+		return new int[] { dices[0].getValue(), dices[1].getValue() };
 	}
 	
 	public int getDiceSum(){

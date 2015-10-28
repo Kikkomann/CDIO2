@@ -9,10 +9,25 @@ public class Account {
 	}
 	
 	public boolean deposit(int value){
-		
-		return 
+		balance += value;
+		return true;
 	}
 	
+	public boolean withdraw(int value){
+		if(balance < value)
+		{
+			balance = 0;
+		}
+			
+		else
+		balance -= value;
+		
+		return true;
+	}
+	
+	public int getBalance(){
+		return balance;
+	}
 	
 	public String toString(){
 		return "" + balance;
