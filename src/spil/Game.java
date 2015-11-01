@@ -14,7 +14,7 @@ public class Game {
 		field[1] = new Field("Crater", "As you walk in the forest you are not paying attention to the path and fall into a crater. You can't get up yourself and after two hours of crying for help, someone finds you and helps you up. He charge you 100 for the help", -100, false);
 		field[2] = new Field("Palace Gates", "You reach the Palace Gates and say hello to your cousin who owes you 100.", 100, false);
 		field[3] = new Field("Cold Deserts", "You want to see the Cold Deserts, but forgot a warm hat. Luckily a new one only costs 20.", -20, false);
-		field[4] = new Field("Walled City", "The Walled City is a must-see in this kingdom. You decide to visit the city. A shame that the price reflects the popularity. You pay 180 to enter.", 180, false);
+		field[4] = new Field("Walled City", "You go to Walled City, the city of gambling. You stick around for some hours and end up richer than when you came. During your time there, you managed to win 180.", 180, false);
 		field[5] = new Field("Monastery", "On your journey you come across a monastery. Monks are boring, so you walk past and hope for something more interesting next time.", 0, false);
 		field[6] = new Field("Black Cave", "You come to the end of the forest path and find a black cave. You are getting hungry and buy a sandwich at the Sandwich Man before you explore the cave. It is a delicious sandwich and it only costed you 70.", -70, false);
 		field[7] = new Field("Huts in the Mountains", "You decided to go to the mountains and discover some huts. People like you so much that they want to give you a present. It is an ugly statue that you sell for 60.", 60, false);
@@ -33,16 +33,27 @@ public class Game {
 	private void run(){
 		int turn = 0;
 		Player cplayer = player[turn]; //current player
+		Field cfield = field[(dicecup.getDiceSum()) - 2];
 		
 		while(!checkWinner())
 		{
 			GUI.getUserButtonPressed(cplayer.getName() + ", your turn.", "Roll");
 			dicecup.roll();
+			cfield = field[(dicecup.getDiceSum()) - 2];
 			GUI.setDice((dicecup.getDiceValues())[0], (dicecup.getDiceValues())[1]);
-			field[(dicecup.getDiceSum()) - 2].land(cplayer);
-			GUI.showMessage(field[(dicecup.getDiceSum()) - 2].getDescription());
 			
-		
+			GUI.showMessage(cfield.getDescription());
+			cfield.land(cplayer);
+			
+				
+			
+			System.out.println(cplayer.getBalance());
+			System.out.println(cfield.toString());
+			
+			turn = (cfield.getExtraTurn()) ? 0 : 1;
+				
+			
+			
 		}
 	}
 	

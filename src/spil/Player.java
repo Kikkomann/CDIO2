@@ -18,21 +18,21 @@ public class Player {
 		return account.getBalance();
 	}
 
-	public boolean changeBalance(int balance) {
-		if (balance < 0)
+	public boolean changeBalance(int reward) {
+		if (reward < 0)
 		{
-			if(account.getBalance() < balance)
+			if(account.getBalance() < reward)
 				return false;
 				
 			else
 			{
-				account.withdraw(balance);
+				account.withdraw(reward);
 				return true;
 			}
 		}
 		else
 		{
-			account.deposit(balance);
+			account.deposit(reward);
 			return true;
 		}
 	}

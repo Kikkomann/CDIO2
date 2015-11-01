@@ -14,9 +14,24 @@ public class Field {
 		this.extraTurn = extraTurn;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
+	public String getDescription(){
+		return description;
+	}
+	
+	public int getReward(){
+		return reward;
+	}
+	
+	public boolean getExtraTurn(){
+		return extraTurn;
+	}
+	
 	public void land(Player player){
 		player.changeBalance(reward);
-		
 	}
 	
 	public String toString(){

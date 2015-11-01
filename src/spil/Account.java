@@ -8,19 +8,19 @@ public class Account {
 		balance = 1000;
 	}
 	
-	public boolean deposit(int value){
-		balance += value;
+	public boolean deposit(int reward){
+		balance += reward;
 		return true;
 	}
 	
-	public boolean withdraw(int value){
-		if(balance < value)
+	public boolean withdraw(int reward){
+		if(balance < reward)
 		{
 			return false;
 		}
 			
 		else
-		balance -= value;
+		balance += reward;
 		
 		return true;
 	}
