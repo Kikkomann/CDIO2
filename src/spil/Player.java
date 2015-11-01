@@ -18,9 +18,23 @@ public class Player {
 		return account.getBalance();
 	}
 
-	public boolean changeBalance() {
-		
-		return true;
+	public boolean changeBalance(int balance) {
+		if (balance < 0)
+		{
+			if(account.getBalance() < balance)
+				return false;
+				
+			else
+			{
+				account.withdraw(balance);
+				return true;
+			}
+		}
+		else
+		{
+			account.deposit(balance);
+			return true;
+		}
 	}
 
 	public String toString() {

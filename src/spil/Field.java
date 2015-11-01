@@ -14,7 +14,8 @@ public class Field {
 		this.extraTurn = extraTurn;
 	}
 	
-	public void land(){
+	public void land(Player player){
+		player.changeBalance(reward);
 		
 	}
 	

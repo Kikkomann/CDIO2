@@ -16,7 +16,7 @@ public class Account {
 	public boolean withdraw(int value){
 		if(balance < value)
 		{
-			balance = 0;
+			return false;
 		}
 			
 		else
