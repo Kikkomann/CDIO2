@@ -20,15 +20,11 @@ public class Player {
 
 	public boolean changeBalance(int reward) {
 		if (reward < 0)
-		{
-			if(account.getBalance() < reward)
-				return false;
-				
-			else
-			{
-				account.withdraw(reward);
-				return true;
-			}
+		{	
+			
+			account.withdraw(reward);
+			return true;
+		
 		}
 		else
 		{

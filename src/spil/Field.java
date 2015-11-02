@@ -18,16 +18,9 @@ public class Field {
 		return description;
 	}
 	
-	public int getReward(){
-		return reward;
-	}
-	
-	public boolean getExtraTurn(){
-		return extraTurn;
-	}
-	
-	public void land(Player player){
+	public boolean land(Player player){
 		player.changeBalance(reward);
+		return extraTurn;
 	}
 	
 	public String toString(){

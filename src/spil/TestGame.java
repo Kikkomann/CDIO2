@@ -19,31 +19,7 @@ public class TestGame {
 			dc.roll();
 			
 			for(int j = 0; j < rolls.length; j++)
-				switch(dc.getDiceSum() - 2){
-				case 0: rolls[0]++;
-						break;
-				case 1: rolls[1]++;
-						break;
-				case 2: rolls[2]++;
-						break;
-				case 3: rolls[3]++;
-						break;
-				case 4: rolls[4]++;
-						break;
-				case 5: rolls[5]++;
-						break;
-				case 6: rolls[6]++;
-						break;
-				case 7: rolls[7]++;
-						break;
-				case 8: rolls[8]++;
-						break;
-				case 9: rolls[9]++;
-						break;
-				case 10: rolls[10]++;
-						break;
-				}
-				
+				rolls[dc.getDiceSum() - 2]++;
 		}
 		sum = IntStream.of(rolls).sum();
 		for(int i = 0; i < pct.length; i++)
@@ -65,22 +41,23 @@ public class TestGame {
 		assertEquals(1000, p.getBalance());
 	}
 	
-	@Test
-	public void testCheckWinner() {
-		Game game = new Game();
-		Player[] player = new Player[2];
-		player[0] = new Player("p1");
-		player[1] = new Player("p2");
-		
-		player[0].changeBalance(2000);
-		assertEquals(true, game.checkWinner());
-	}
-//	
 //	@Test
-//	public void testGame() {
+//	public void testCheckWinner() {
 //		Game game = new Game();
+//		Player[] player = new Player[2];
+//		player[0] = new Player("p1");
+//		player[1] = new Player("p2");
 //		
+//		player[0].changeBalance(2000);
+//		assertEquals(true, game.checkWinner());
 //	}
+	
+	@Test
+	public void testBelow0() {
+		Player p = new Player("p1");
+		p.changeBalance(-1001);
+		assertEquals(0, p.getBalance());		
+	}
 //	
 //	@Test
 //	public void testGame() {

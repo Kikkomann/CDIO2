@@ -14,15 +14,17 @@ public class Account {
 	}
 	
 	public boolean withdraw(int reward){
-		if(balance < reward)
+		if(reward > balance)
 		{
-			return false;
+			balance = 0;
+			return true;
 		}
 			
 		else
-		balance += reward;
-		
-		return true;
+		{
+			balance += reward;
+			return true;
+		}
 	}
 	
 	public int getBalance(){
