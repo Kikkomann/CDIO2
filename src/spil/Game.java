@@ -32,11 +32,12 @@ public class Game {
 	
 	private void run(){
 		int turn = 0;
-		Player cplayer = player[turn]; //current player
+		
 		Field cfield = field[(dicecup.getDiceSum()) - 2];
 		
-		while(!checkWinner())
+		do
 		{
+			Player cplayer = player[turn]; //current player
 			GUI.getUserButtonPressed(cplayer.getName() + ", your turn.", "Roll");
 			dicecup.roll();
 			cfield = field[(dicecup.getDiceSum()) - 2];
@@ -44,22 +45,22 @@ public class Game {
 			
 			GUI.showMessage(cfield.getDescription());
 			cfield.land(cplayer);
+			GUI.setBalance(cplayer.getName(), cplayer.getBalance());
 			
-				
-			
-			System.out.println(cplayer.getBalance());
-			System.out.println(cfield.toString());
-			
-			turn = (cfield.getExtraTurn()) ? 0 : 1;
-				
-			
-			
+			if(!cfield.getExtraTurn())
+			{
+				if(turn >= player.length - 1)
+					turn = 0;
+				else
+					turn++;
+			}
 		}
+		while(!checkWinner());
 	}
 	
 	
 	
-	private boolean checkWinner(){
+	public boolean checkWinner(){
 		if(player[0].getBalance() >= 3000 || player[0].getBalance() >= 3000)
 			return true;
 		

@@ -14,10 +14,6 @@ public class Field {
 		this.extraTurn = extraTurn;
 	}
 	
-	public String getName(){
-		return name;
-	}
-	
 	public String getDescription(){
 		return description;
 	}
